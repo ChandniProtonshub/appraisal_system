@@ -1,0 +1,87 @@
+<div id="header">
+  <!DOCTYPE>
+<html>
+<head>
+  <title></title>
+</head>
+
+<body style="background-image: url(BG.jpg); height: 15; width: 15; background-repeat; ">
+  </html>
+  
+<center>
+  <h1>Welcome to dashboard </h1>
+ 
+  <p style="text-align: left; font-size: 15px;">
+  <%= link_to "All Questions", admin_ques_path %>
+
+</div>
+<div id="mid">
+<p style="text-align: right; font-size: 15px;">
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+</p>
+<center>
+<table>
+  <tr>
+    <h3><th>First Name</th></h3>
+    <th><br></th>
+    <th><br></th>
+    <h3><th>Last Name</th></h3>
+    <th><br></th>
+    <th><br></th>
+    <h3><th>Email</th></h3>
+    <th><br></th>
+    <th><br></th>
+    <h3><th>Phone Number</th></h3>
+    <th><br></th>
+    <th><br></th>
+    <h3><th>Gender</th></h3>
+    <th><br></th>
+    <th><br></th>
+  <th colspan="3"></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.fname %></td>
+      <td><br></td>
+      <td><br></td>
+      <td><%= user.lname%></td>
+      <td><br></td>
+      <td><br></td>
+      <td><%= user.email %></td>
+      <td><br></td>
+      <td><br></td>
+      <td><%= user.pnumber %></td>
+      <td><br></td>
+      <td><br></td>
+      <td><%= user.gender%></td>
+      <td><br></td>
+      <td><br></td>
+
+      <td class ="FocusOnPanel"><%= link_to 'Show', admin_user_path(user) %></td>
+      <td><br></td>
+      <td><br></td>
+      <td class ="FocusOnPanel"><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+      <td><br></td>
+      <td><br></td>
+      <td class ="FocusOnPanel"><%= link_to 'Destroy', admin_user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      <td class ="FocusOnPanel"><%= link_to 'Assign Questions',admin_user_assign_questions_path(user) %> </td>
+      <td><br></td>
+      <td><br></td>
+    </tr>
+    <% end %>
+</table>
+<br>
+<br>
+<%#= link_to 'CreateQuestions', new_admin_questiontype_path%>
+<%= link_to 'CreateQuestions', new_admin_que_path%>
+
+<br>
+</center>
+</center>
+</div>
+</body>
+<div id="footer">
+  </div>
+

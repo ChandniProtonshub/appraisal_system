@@ -1,0 +1,45 @@
+<div id="header">
+ <center>
+  <h3> Edit Question </h3>
+ </center>
+</div>
+
+<div id="mid">
+<%= form_for @question, url: admin_que_path(@question), method: :put do |form|%>
+    <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@question.errors.count, "error") %> prohibited
+        this question from being saved:
+      </h2>
+      <ul>
+        <% @question.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :description, "Description" %><br />
+    <%= form.text_area :description, autofocus: true, autocomplete: "Description" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :question_type_id, "Question Type" %><br />
+   <%= form.select :question_type_id, @ques.collect { |p| [ p.name, p.id ] }, include_blank: true %> 
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
+</div>
+
+
+<div id ="footer">
+</div>
+
+
+
+
+

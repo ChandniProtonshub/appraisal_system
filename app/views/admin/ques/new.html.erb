@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <div id ="header">
+		<center>
+			<h3>Welcome to admin panel</h3>
+		</center>
+	  </div>
+	  <hr>
+     <center>
+	  <div id ="mid">
+		<div class="field">
+		<br>
+	  <br>
+	</head>
+<body>
+<h3>create questions</h3>
+
+<br>
+<%= form_for(@question, :url => {action: "create"}) do |form| %>
+ 	<%= form.select :question_type_id, @ques.collect { |p| [ p.name, p.id ] }, include_blank: true %> 
+ <br>
+ <div class="field">
+    <%= form.text_area :description%>
+ </div>
+ <br>
+  <br>
+ <div class="field">
+    <%= form.submit %>
+ </div
+
+ <% end %>
+</body>
+</html>
+</div>
+</div>
+<hr>
+
+<div id="footer">
+	</div>

@@ -1,0 +1,48 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+*
+{
+	margin:0px
+}
+#header
+ {
+	padding: 30px;
+	height:30px;
+	//border: 1px solid black;
+	background-color:#ffd700;
+}
+
+#mid
+{
+	height:430px;
+	//background-image:url("cloud.jpeg");
+	background-color:#bbff00;
+}
+
+#footer
+{
+    //border: 1px solid black;
+	height:95px;
+    background-color:#ffd700;
+
+}
+ul li
+{
+	list-style-type:none;
+	float:left;
+	margin-left: 30px;
+    font-size: 25px;
+    padding-top: 60px;
+}
+ul li a
+{
+	text-decoration: none;
+}
+ul li:hover a
+{
+	color:red;
+	background-color: green;
+}

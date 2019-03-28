@@ -1,0 +1,26 @@
+<!DOCTYPE>
+  <html>
+    <head>
+      <title></title>
+    </head>
+
+<body style="background-image: url(pp.jpg); height: 15; width: 15; background-repeat; ">
+</html>
+<center>
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</center>
+</body>

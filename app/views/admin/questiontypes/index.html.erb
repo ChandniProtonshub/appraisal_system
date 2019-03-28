@@ -1,0 +1,22 @@
+ <div id ="header">
+		<center>
+			<h3>Create Questions</h3>
+		</center>
+	  </div>
+	  <hr>
+     <center>
+	  <div id ="mid">
+		<div class="field">
+		<br>
+	  <br>
+       <%#= select_tag "name_dropdown", options_from_collection_for_select(
+       QuestionType.all.map{|q|[q.name, q.id]}, "name") %>
+       </div>
+		 <button type="submit" value="Submit">Submit</button>
+</center>
+</div>
+ <hr>
+<div id="footer">
+	</div>
+
+	
