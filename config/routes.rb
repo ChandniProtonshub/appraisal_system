@@ -23,6 +23,7 @@ Rails.application.routes.draw do
      get 'self_evaluation', to: 'answers#self_evaluation'
       get 'team_evaluation', to: 'answers#team_evaluation'
       post 'submit', to: 'answers#submit'
+      post 'submit2',  to:'answers#submit2'
 end
 
    namespace :admin do
@@ -35,6 +36,6 @@ end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
-
+# Cc8989647346$
 
   
