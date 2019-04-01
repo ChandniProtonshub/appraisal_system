@@ -1,42 +1,53 @@
-<!DOCTYPE>
-<html>
-<head>
-  <title></title>
-</head>
-<body style="background-image: url(BG.jpg); height: 50; width: 50; background-repeat; ">
-<center>
-    <h3>User's Answer</h3>
+<div id="header">
+  <center>
+    <h3>Your Questions and Answers</h3>
+  </div>
+  <div id="mid">
     <p style="text-align: right; font-size: 15px;">
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-</p>
+     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+   </center>
+   <table>
 
-<p>
-  <strong>"Question1. What Has Been the Most Challenging Face of Your Work?":</strong>
-   <%= @answer.answer%>
-</p>
-<p>
-  <strong> "Question2. What Has Been Your Biggest Achievement in the Given Period of Time?" </strong>
-   <%= @answer.answer %>
-</p>
-<p>
-  <strong> "Question3. Which Aspect of Your Work Do You like The Most?"</strong>
-   <%= @answer.answer %>
-</p>
+     <% @questions.each_with_index do |question, i| %>
+     <strong>Question:</strong>
+     <%= question.description %>
+     <br>
+     
+     <strong>Answer:</strong>
+     <%= question.answers.first.description%> <br>
+     <%= link_to 'edit', edit_users_answer_path(@question, answer)%>
+      <%= link_to 'delete answer', [answer.question, answer],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %> <br>
+   
+     <br>
+     <br>
+     <br>
+     <% end %>
+   </table>
+   <br>
+   <br>
+   <%= link_to  'back' %>
+ </div>
 
-<p>
-  <strong>"Question4. How would you rate your performance this quarter?"</strong>
-   <%= @answer.answer %>
-</p>
 
-<p>
-  <strong>"Question5. What is your expectation for increament?" </strong>
-  <%= @answer.answer %>
-</p>
+ <div id="footer">
+ </div>
 
-<%= link_to 'Edit Answer', edit_user_question_path(@answer) %>
-<br>
 
-</center>
-</body>
-</html>
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

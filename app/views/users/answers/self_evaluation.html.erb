@@ -3,8 +3,8 @@
    <h1>Fill the Self-Evaluation Form </h1>
    <p style="text-align: left; font-size: 15px;">
    </div>
-   <%= form_for @answer, url: users_submit_path(), :method => "post" do |f| %>
-
+  <%= form_for @answer, url: users_submit_path(), method: :post do |f| %>
+  
    <div id="mid">
      <p style="text-align: right; font-size: 15px;">
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
@@ -16,7 +16,7 @@
      <tr>
       <%= i+1 %> <%= question.description %><br>
       <%= label_tag :answer, "Answer:" %><br>
-      <%= text_area_tag "description_#{question.id}" %><br>
+      <%= text_area_tag "questions[#{question.id}][description]" %><br>
     </tr>
   <% end %>
   

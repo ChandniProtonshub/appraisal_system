@@ -1,86 +1,47 @@
 class Users::AnswersController < ApplicationController
-     
-  # def index
-  #   @answers = Answer.all
-  # end
- 
-  # # def show
-  # #   @answer = Answer.find_by_id(params[:id])
-  # #   redirect_to answers_path  if @answer.nil?
-  # # end
- 
-  # def new
-  #   @answer = Answer.new
-  # end
- 
-  # def edit
-  #   @answer = Answer.find(params[:id])
-  # end
- 
-  # def create
-  #   @answer = Answer.new(answer_params)
- 
-  #   if @answer.save
-  #     redirect_to users_answer(@answer)
-  #   else
-  #     render 'new'
-  #   end
-  # end
- 
-  # def update
-  #   @answer = Answer.find(params[:id])
-  #    if @answer.update(answer_params)
-  #     redirect_to @answer
-  #   else
-  #     render 'edit'
-  #   end
-  # end
- 
-  # def destroy
-  #   @answer = Answer.find(params[:id])
-  #   @answer.destroy
- 
-  #   redirect_to answers_path
-  # end
+
+  def edit
+    @question = Question.find_by_id(params[:question_id])
+    @answer = @question.answers.find_by_id(params[:id])
+  end
+
+  def update
+    @question = Question.find_by_id(params[:question_id])
+    @answer = @question.answers.find_by_id(params[:id])
+    if @answer.update(answer_params)
+      redirect_to users_show_path(@answer)
+    else
+      render 'edit'
+    end
+  end
+
+
+  def show
+    # binding.pry
+    @questions = Question.all
+  end
 
   def self_evaluation
-   @questions = Question.all
-   @answer = Answer.new
+    @questions = Question.all
+    @answer = Answer.new
   end
 
   def team_evaluation
     @questions = Question.all
   end
-  
-  def submit2
-  end
-  
+
   def submit
-    Question.all do |a|
-      if params["description_#{a.id}"] != ""
-        a.answers.create(description: params["description_#{a.id}"], user: current_user)
-      end
+    params[:questions].each do |question|
+      ques = Question.find question[0]
+      ques.answers.create(user_id: current_user.id, description: question[1][:description])
+      ques.save      
     end
-    redirect_to users_path
+    redirect_to  users_show_path
   end
 
- private
-    def answer_params
-      params.require(:answer).permit(:description, :question_id)
-      # params.require(:answer).permit([:description, {question_id: []})
-    end
+  private
+  
+  def answer_params
+    params.require(:answer).permit(:description, :question_id)  
+  end
 end
-
-
-
-
-# redirect_to questions_path, notice: "Your question was created
-# successfully."
-#   else
-#   flash.now[:error] = "PLease correct the form"
-#     render :new
-#   end
-# end
-
-# [:title, :description,
-# {category_ids: []}

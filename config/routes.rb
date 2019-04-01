@@ -23,7 +23,7 @@ Rails.application.routes.draw do
      get 'self_evaluation', to: 'answers#self_evaluation'
       get 'team_evaluation', to: 'answers#team_evaluation'
       post 'submit', to: 'answers#submit'
-      post 'submit2',  to:'answers#submit2'
+      get 'show', to: 'answers#show'
 end
 
    namespace :admin do
