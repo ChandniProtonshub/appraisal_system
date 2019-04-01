@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 </head>
-<body style="background-image: url(BG.jpg); height: 50; width: 50; background-repeat; ">
+<body>
   <div id="header">
   <center>
     <h3>User Information</h3>
@@ -34,7 +34,7 @@
      <%= @user.gender %>
     </p>
 
-<%= link_to 'Edit', edit_users_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %>
 <br>
 <%= link_to 'Self-Evaluation', users_self_evaluation_path %>
 <br>

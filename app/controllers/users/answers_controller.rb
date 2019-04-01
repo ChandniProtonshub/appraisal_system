@@ -56,16 +56,12 @@ class Users::AnswersController < ApplicationController
   end
   
   def submit
-    @question = Question.all
-    # binding.pry
-    # @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
-    if @answer.save
-    redirect_to @question, noticee: "Answer created successfully."
-    else
-      render "/questions/show"
+    Question.all do |a|
+      if params["description_#{a.id}"] != ""
+        a.answers.create(description: params["description_#{a.id}"], user: current_user)
+      end
     end
-     redirect_to users_submit_path(@question)
+    redirect_to users_path
   end
 
  private

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 # protect_from_forgery with: :exception
  before_action :configure_permitted_parameters, if: :devise_controller?
- # before_action :require_system_admin
+ before_action :single_user_login
 
  protected
 
@@ -22,6 +22,15 @@ end
  devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:fname, :lname, :email, :pnumber, :gender, :email, :password, :current_password) }
  devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:lname, :fname, :pnumber, :gender, :email, :password, :current_password) }
  devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password)}
+   end
+
+   def single_user_login
+     if params[:controller] == "users" && params[:action] == "show"
+      return if current_user.id == params[:id]
+    else
+      flash[:notice] = "Cannot access"
+      redirect_to users_path
+    end
    end
 
 
