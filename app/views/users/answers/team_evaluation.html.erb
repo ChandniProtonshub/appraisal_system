@@ -1,46 +1,35 @@
 <div id="header">
  <center>
-  <h1>Welcome to admin index </h1>
-  <p style="text-align: left; font-size: 15px;">
-<%= link_to "All Users", admin_users_path %>
-
-</div>
-<div id="mid">
-<p style="text-align: right; font-size: 15px;">
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-</p>
-</center>
-<table>
-  <tr>
-    <h3><th>Question</th></h3>
-    <th><br></th>
-    <th><br></th>
-    <h3><th>Type</th></h3>
-    <th><br></th>
-    <th><br></th>
-   <!--  <th colspan="3"></th> -->
-  </tr>
-   <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.description %></td>
-      <td><%= question.question_type.name%></td>
-      <td><br></td>
-      <td><br></td>
-      <td><%= link_to 'Edit', edit_admin_que_path(question) %></td>
-      <td><br></td>
-      <td><br></td>
-      <td><%= link_to 'Destroy',  admin_que_path(question),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+   <h1>Fill the Team-Evaluation Form </h1>
+   <p style="text-align: left; font-size: 15px;">
+   </div>
+  <%= form_for @answer, url: users_submit2_path(), method: :post do |f| %>
+  
+   <div id="mid">
+     <p style="text-align: right; font-size: 15px;">
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    </p>
+  </center>
+  <table>
+   <% @questions.each_with_index do |question, i| %>
+     <br>
+     <tr>
+      <%= i+1 %> <%= question.description %><br>
+      <%= label_tag :answer, "Answer:" %><br>
+      <%= text_area_tag "questions[#{question.id}][description]" %><br>
     </tr>
-    <% end %>
+  <% end %>
+  
+</tr>
+<br>
+<%= submit_tag "Submit" %>
 </table>
-<br>
-<br>
+</div>
+</div>
+<% end %>
+<div id="footer">
 </div>
 
 
-<div id="footer">
-  </div>
 
 

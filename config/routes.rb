@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       get 'team_evaluation', to: 'answers#team_evaluation'
       post 'submit', to: 'answers#submit'
       get 'show', to: 'answers#show'
+      get 'edit', to: 'answers#edit'
+      post 'submit2', to: 'answers#submit2'
 end
 
    namespace :admin do

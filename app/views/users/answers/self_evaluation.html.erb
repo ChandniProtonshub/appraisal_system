@@ -16,11 +16,11 @@
      <tr>
       <%= i+1 %> <%= question.description %><br>
       <%= label_tag :answer, "Answer:" %><br>
-      <%= text_area_tag "questions[#{question.id}][description]" %><br>
+      <%= text_area_tag "questions[#{question.id}][description]", 
+      question.answers.first.description %><br>
     </tr>
   <% end %>
-  
-</tr>
+  </tr>
 <br>
 <%= submit_tag "Submit" %>
 </table>

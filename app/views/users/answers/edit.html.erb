@@ -1,10 +1,17 @@
-<%= form_for @answer, url: users_answer_path(@question, @answer), method: :put do |form| %>
+<div id = "header">
+	<h3> Edit your Answer </h3><br><br>
+</div>
+<div id ="mid">
+<%= form_for @answer, url: users_answer_path(@answer), method: :put do |form| %>
 
-<h3> Edit Answer </h3>
- 
  <div class="field">
- <%= label_tag :answer, "Answer:" %><br>
- <%= text_area_tag "questions[#{question.id}][description]" %><br>
+ <%= label_tag :description, "Question:" %>
+ <%= label_tag :description, @answer.question.description %><br>
+</div><br>
+
+ <div class="field">
+ <%= label_tag :description, "Answer:" %><br>
+ <%= form.text_area :description, value: @answer.description %><br>
 </div>
 
 <div class="actions">
@@ -12,3 +19,7 @@
 </div>
 
 <% end %>
+</div>
+
+<div id = "footer">
+</div>

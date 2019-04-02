@@ -15,8 +15,10 @@
      
      <strong>Answer:</strong>
      <%= question.answers.first.description%> <br>
-     <%= link_to 'edit', edit_users_answer_path(@question, answer)%>
-      <%= link_to 'delete answer', [answer.question, answer],
+     <%  a = question.answers&.first&.id%>
+
+     <%= link_to 'edit', edit_users_answer_path(a) %>
+      <%#= link_to 'delete answer', users_answer_path(question.answer.first)
                method: :delete,
                data: { confirm: 'Are you sure?' } %> <br>
    
