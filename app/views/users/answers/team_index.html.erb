@@ -1,0 +1,41 @@
+<div id="header">
+  <center>
+    <h3>Your Questions and Answers for Team Members</h3>
+  </center>
+</div>
+<div id="mid">
+    <p style="text-align: right; font-size: 15px;">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <table>
+    <% @questions.each_with_index do |question, i| %>
+    <strong>Question:</strong>
+    <%= question.description %><br>
+    <strong>Answer:</strong>
+    <%= question.answers.where(user_id: current_user.id).first&.description %><br>
+    <br>
+    <% end %>
+  </table><br><br>
+  <center>
+    <%= link_to 'Back', users_team_evaluation_path %>
+  </center>
+</div>
+<div id="footer">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

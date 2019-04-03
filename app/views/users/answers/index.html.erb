@@ -14,7 +14,7 @@
      <br>
      
      <strong>Answer:</strong>
-     <%= question.answers.where(user_id: current_user.id).first.description %> <br>
+     <%= question.answers.where(user_id: current_user.id).first&.description %> <br>
      <% a = question.answers&.first&.id %>
 
      <%= link_to 'edit', edit_users_answer_path(a) %>

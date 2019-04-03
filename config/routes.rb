@@ -19,16 +19,21 @@ Rails.application.routes.draw do
     resources :answers do
       # get 'self_evaluation'
       # get 'team_evaluation'
+    end
+    get 'self_evaluation', to: 'answers#self_evaluation'
+    get 'self_evaluation2', to: 'answers#self_evaluation2'
+    get 'team_evaluation', to: 'answers#team_evaluation'
+    get 'team_evaluation2', to: 'answers#team_evaluation2'
+    post 'submit', to: 'answers#submit'
+    get 'show', to: 'answers#show'
+    get 'edit', to: 'answers#edit'
+    post 'submit2', to: 'answers#submit2'
+    put 'update_ans', to: 'answers#update_ans'
+    get 'team_index', to: 'answers#team_index'
+    put 'update_tem_ans', to: 'answers#update_tem_ans'
   end
-     get 'self_evaluation', to: 'answers#self_evaluation'
-      get 'team_evaluation', to: 'answers#team_evaluation'
-      post 'submit', to: 'answers#submit'
-      get 'show', to: 'answers#show'
-      get 'edit', to: 'answers#edit'
-      post 'submit2', to: 'answers#submit2'
-end
 
-   namespace :admin do
+  namespace :admin do
     resources :users do
       get 'assign_questions'
     end
@@ -40,4 +45,4 @@ end
 
 # Cc8989647346$
 
-  
+
