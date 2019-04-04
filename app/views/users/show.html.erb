@@ -1,49 +1,37 @@
-<!DOCTYPE>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-  <div id="header">
+<div id="header">
   <center>
     <h3>User Information</h3>
   </div>
-    <div id="mid">
+  <div id="mid">
     <p style="text-align: right; font-size: 15px;">
      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
    </p>
-    <center>
+   <center>
     <p>
-       <strong>First Name:</strong>
-       <%= @user.fname %>
-    </p>
-    <p>
-       <strong>Last Name:</strong>
-       <%= @user.lname %>
-    </p>
-    <p>
-      <strong>Email:</strong>
-      <%= @user.email %>
-    </p>
-     <p>
-      <strong>Phone Number:</strong>
-      <%= @user.pnumber %>
-     </p>
-    <p>
-     <strong>Gender:</strong>
-     <%= @user.gender %>
-    </p>
-
-<%= link_to 'Edit', edit_users_path(@user) %>
-<br>
-<%= link_to 'Self-Evaluation', users_self_evaluation_path %>
-<br>
-<%= link_to 'Team-Evaluation', users_team_evaluation_path %>
+     <strong>First Name:</strong>
+     <%= @user.fname %>
+   </p>
+   <p>
+     <strong>Last Name:</strong>
+     <%= @user.lname %>
+   </p>
+   <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @user.pnumber %>
+  </p>
+  <p>
+   <strong>Gender:</strong>
+   <%= @user.gender %>
+ </p>
+ <%= link_to 'Edit', edit_users_path(@user) %><br>
+ <%= link_to 'Self-Evaluation', users_self_evaluation_path %><br>
+ <%= link_to 'Team-Evaluation', users_team_evaluation_path %>
 </div>
 </center>
 </center>
- <div id="footer">
-  </div>
-</body>
-</html>
- 
+<div id="footer">
+</div>

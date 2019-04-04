@@ -1,61 +1,52 @@
-<!DOCTYPE>
-<html>
-<head>
-  <title></title>
-</head>
-<body style="background-image: url(BG.jpg); height: 15; width: 15; background-repeat; ">
-  </html>
-<%= form_for @user, url: users_path(@user), method: :put do |form| %>
-
-
+<div id ="header">
+  <%= form_for @user, url: users_path(@user), method: :put do |form| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
   <center>
-  <h3> Edit User </h3>
- 
-  <div class="field">
+    <h3> Edit User </h3>
+  </div>
+  <div id = "mid">
+   <div class="field">
     <%= form.label :fname, "First Name"%><br />
     <%= form.text_field :fname, autofocus: true, autocomplete: "fname" %>
   </div>
-
   <div class="field">
     <%= form.label :lname, "Last Name" %><br />
     <%= form.text_field :lname, autofocus: true, autocomplete: "lname" %>
   </div>
-
   <div class="field">
     <%= form.label :pnumber, "Phone Number" %><br />
     <%= form.number_field :pnumber, autofocus: true, autocomplete: "pnumber" %>
   </div>
-
   <div class="field">
-  <b>Gender</b><br />
-  <%= form.radio_button :gender, 'Female' %> Female
-  <%= form.radio_button :gender, 'Male' %> Male <br />
+    <b>Gender</b><br />
+    <%= form.radio_button :gender, 'Female' %> Female
+    <%= form.radio_button :gender, 'Male' %> Male <br />
   </div>
-    
   <div class="field">
     <%= form.label :email %><br />
     <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-<div class="actions">
+  <div class="actions">
     <%= form.submit "Update" %>
   </div>
-<% end %>
+  <% end %>
+</div>
 </center>
-</body>
+<div id ="footer">
+</div>
+
 
 
 

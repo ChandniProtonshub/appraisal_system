@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     put 'update_ans', to: 'answers#update_ans'
     get 'team_index', to: 'answers#team_index'
     put 'update_tem_ans', to: 'answers#update_tem_ans'
+    get 'index_for_ans', to: 'answers#index_for_ans'
   end
 
   namespace :admin do

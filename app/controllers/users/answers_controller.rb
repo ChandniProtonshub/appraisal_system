@@ -1,22 +1,23 @@
 class Users::AnswersController < ApplicationController
 
- #  def edit
- #   @answer = Answer.find_by_id(params[:id])
- # end
+before_action :authenticate_user!
 
-#  def update  
-#    @answer = Answer.find_by_id(params[:id])
-#    if @answer.update(answer_params)
-#     redirect_to users_answers_path(@answer)
-#   else
-#     render 'edit'
-#   end
-# end
+def index_for_ans
+  @user = User.where(:id => params["user_id"]).first
+
+  @self_questions = QuestionType.find_by_name("self_question").questions
+  @team_questions = QuestionType.find_by_name("team_question").questions
+  @answer = Answer.new
+end
 
 def update_ans
   params[:questions].each do |question|
     ques = Question.find question[0]
     ques.answers.update(user_id: current_user.id, description: question[1][:description])
+    unless ques.answers.present?
+      ques.answers.create(user_id: current_user.id, description: question[1][:description])
+      ques.save 
+    end
   end
   redirect_to users_answers_path
 end

@@ -8,11 +8,10 @@
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     <table>
     <% @questions.each_with_index do |question, i| %>
-    <strong>Question:</strong>
+    <strong>Question:</strong><%= i+1 %>
     <%= question.description %><br>
     <strong>Answer:</strong>
-    <%= question.answers.where(user_id: current_user.id).first&.description %><br>
-    <br>
+    <%= question.answers.where(user_id: current_user.id).first&.description%><br>
     <% end %>
   </table><br><br>
   <center>

@@ -1,4 +1,6 @@
 class Admin::QuestionTypesController < ApplicationController
+	
+    before_action :authenticate_user!
 
     def index
         @questiontypes = QuestionType.all

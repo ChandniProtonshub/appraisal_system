@@ -1,0 +1,52 @@
+<div id="header">
+  <center>
+    <h3>Submitted Answers by <%= @user.fname %></h3>
+  </center>
+</div>
+<div id="mid">
+  <p style="text-align: right; font-size: 15px;">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <h4> Self_Evaluation Questions and Answers </h4>
+    <br>
+    <table>
+     <% @self_questions.each_with_index do |self_question, i| %>
+      <strong>Question:</strong><%= i+1 %>
+      <%= self_question.description %><br>
+      <strong>Answer:</strong>
+      <%= self_question.answers.where(user_id: @user).first&.description %><br>
+      <% end %>
+    </table><br><br>
+    <h4> Team_Evaluation Questions and Answers </h4>
+    <br>
+    <table>
+      <%  @team_questions.each_with_index do |question, i| %>
+      <strong>Question:</strong><%= i+1 %>
+      <%= question.description %><br>
+      <strong>Answer:</strong>
+      <%= question.answers.where(user_id: @user).first&.description %><br>
+      <% end %>
+    </table><br><br>
+    <center>
+      <%= link_to 'Back', admin_users_path %>
+    </center>   
+  </div>
+  <div id="footer">
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

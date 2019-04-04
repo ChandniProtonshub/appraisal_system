@@ -1,33 +1,15 @@
-<!DOCTYPE>
-<html>
-<head>
-	<title></title>
+<center>
+	<div id="header">
+		<h3>Welcome to the Appraisal System</h3>
+	</div>
+	<div id="mid"><br><br>
+		<h4> Click here for Employee or Admin <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> </h4>
+	</div>
+	<div id="footer">
+	</div>
 	
-	<!-- <body style="background-image: url(BG.jpg); height: 30; width: 30; background-repeat; "> -->
-		
-		</html>
-		<center>
-			<% if user_signed_in? %>
-			<h3> you are sign_in successfully</h3>
-			<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-			<% elsif %>
-			<div id="header">
-				<h3>Welcome to the Appraisal System</h3>
-			</div>
-			<div id="mid">
-				<br>
-				<br>
-
-				<h4> Click here for Employee or Admin <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> </h4>
-			</div>
-
-			<div id="footer">
-				
-			</div>
-
-			<% end %> 
-		</center>
-	</body>
+</center>
+	
 
 	
 	
