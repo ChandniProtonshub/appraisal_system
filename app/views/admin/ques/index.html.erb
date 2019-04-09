@@ -1,44 +1,135 @@
 <div id="header">
  <center>
   <h1>Welcome to Admin Index </h1>
+</center>
+</div>
+<div id="mid">
+  <br>
   <p style="text-align: left; font-size: 15px;">
     <%= link_to "All Users", admin_users_path %>
-  </div>
-  <div id="mid">
+    <br>
     <p style="text-align: right; font-size: 15px;">
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     </p>
-  </center>
-  <table>
-    <tr>
-      <h3><th>Questions</th></h3>
-      <th><br></th>
-      <th><br></th>
-      <h3><th>Type</th></h3>
-      <th><br></th>
-      <th><br></th>
-    </tr>
+    <center><h4> Self_Evaluation Questions and Answers </h4></center>
+    <br>
     <center>
-      <% @questions.each_with_index do |question, i| %>
-     <tr>
-      <th><td><%= question.description %></td></th><%= i+1 %>
-      <th><td><%= question.question_type.name%></td></th>
-      <td><br></td>
-      <td><br></td>
-      <td><%= link_to 'Edit', edit_admin_que_path(question) %></td>
-      <td><br></td>
-      <td><br></td>
-      <td><%= link_to 'Destroy',  admin_que_path(question),
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %></td>
-    </center></tr>
-  <% end %>
-</table><br><br>
-<center>
-  <%= link_to 'CreateQuestions', new_admin_que_path%>
-</center>
-</div>
-<div id="footer">
-</div>
+      <table>
+        <tr>
+          <h3><th>Question_no.</th></h3>
+          <th><br></th>
+          <th><br></th>
+          <h3><th>Questions</th></h3>
+          <th><br></th>
+          <th><br></th>
+          <h3><th>Type</th></h3>
+          <th><br></th>
+          <th><br></th>
+        </tr>
+        <% @self_questions.each_with_index do |question, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><br></td>
+          <td><br></td>
+          <td><%= question.description  %></td>
+          <td><br></td>
+          <td><br></td>
+          <td><%= question.question_type.name%></td>
+          <td><br></td>
+          <td><br></td>
+          <td><%= link_to 'Edit', edit_admin_que_path(question) %></td>
+          <td><br></td>
+          <td><br></td>
+          <td><%= link_to 'Destroy',  admin_que_path(question),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </table><br><br>
+
+      <h4> Team_Evaluation Questions and Answers </h4>
+      <br>
+      <center>
+        <table>
+          <tr>
+            <h3><th>Question_no.</th></h3>
+            <th><br></th>
+            <th><br></th>
+            <h3><th>Questions</th></h3>
+            <th><br></th>
+            <th><br></th>
+            <h3><th>Type</th></h3>
+            <th><br></th>
+            <th><br></th>
+          </tr>
+         <% @team_questions.each_with_index do |question, i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><br></td>
+            <td><br></td>
+            <td><%= question.description  %></td>
+            <td><br></td>
+            <td><br></td>
+            <td><%= question.question_type.name%></td>
+            <td><br></td>
+            <td><br></td>
+            <td><%= link_to 'Edit', edit_admin_que_path(question) %></td>
+            <td><br></td>
+            <td><br></td>
+            <td><%= link_to 'Destroy',  admin_que_path(question),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </table><br><br>
+        <center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <center>
+            <%= link_to 'CreateQuestions', new_admin_que_path%>
+            <br>
+            <%= link_to 'Back', :back%>
+          </center>
+        </div>
+        <div id="footer">
+        </div>
 
 

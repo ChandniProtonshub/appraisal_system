@@ -1,9 +1,13 @@
 class Admin::QuesController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin
 
-	def index
-		@questions = Question.all
-	end
+  def index
+  @user = User.where(:id => params["user_id"]).first
+  @self_questions = QuestionType.find_by_name("self_question").questions
+  @team_questions = QuestionType.find_by_name("team_question").questions
+  @answer = Answer.new
+  end
 
   def new
     @ques = QuestionType.all
@@ -27,9 +31,14 @@ class Admin::QuesController < ApplicationController
   def show
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to admin_ques_path
+  end
+
 	def create
-		# binding.pry
-    @question = Question.new(question_params)
+	 @question = Question.new(question_params)
     @ques = QuestionType.all
     if @question.save
       redirect_to admin_ques_path(@question)
@@ -42,5 +51,16 @@ class Admin::QuesController < ApplicationController
     def question_params
       params.require(:question).permit(:description, :question_type_id)
     end
+
+    def authenticate_admin
+      unless current_user.is_admin?
+        redirect_to welcome_index_path
+      end
+    end
 end
+
+
+
+
+   
 

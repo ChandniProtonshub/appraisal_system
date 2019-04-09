@@ -1,12 +1,12 @@
 <div id = "header">
 <center>
-   <%= form_for @user, url: admin_user_path(@user), method: :put do |form| %>
+   <%= form_for @user, url: admin_user_path(@user), method: :put, class: "userform"  do |form| %>
     <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h3>
         <%= pluralize(@user.errors.count, "error") %> prohibited
         this user from being saved:
-      </h2>
+      </h3>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -42,7 +42,7 @@
     <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="actions">
-    <%= form.submit "Update" %>
+    <%= form.submit "Update", class: "btnclick" %>
   </div>
 <% end %>
 <%= link_to "Back", :back %>
@@ -50,6 +50,15 @@
 </center>
 <div id = "footer">
 </div>
+
+<script type="text/javascript">
+$( ".btnclick" ).click(function()
+{
+  alert("hello");
+ $( ".userform" ).submit();
+
+});
+</script>
 
 
 

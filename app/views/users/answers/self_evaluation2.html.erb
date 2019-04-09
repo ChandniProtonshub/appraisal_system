@@ -1,12 +1,14 @@
 <div id="header">
  <center>
-   <h1>Fill the Self-Evaluation Form </h1>
+   <h1>Update Self Evaluation Form</h1>
    <p style="text-align: left; font-size: 15px;">
    </div>
-   <%= form_for @answer, url: users_submit_path(), method: :post do |f| %>
+   <%= form_for @answer, url: users_update_self_ans_path(), method: :put do |f| %>
    <div id="mid">
      <p style="text-align: right; font-size: 15px;">
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <br>
+      <%= link_to 'Back', users_path(@user) %>
     </p>
   </center>
   <table>
@@ -14,17 +16,27 @@
    <tr>
     <%= i+1 %> <%= question.description %><br>
     <%= label_tag :answer, "Answer:" %><br>
-    <%= text_area_tag "questions[#{question.id}][description]", class: "text_area"%><br>
+    <%= text_area_tag "questions[#{question.id}][description]",question.answers.where(user_id: current_user.id).first&.description,  class: "text_area" %><br>
   </tr>
   <% end %>
 </tr><br>
 <%= submit_tag "Submit" %>
+<%= link_to 'Answers For Team Evaluation', users_team_evaluation_path %>
 </table>
 </div>
 </div>
 <% end %>
 <div id="footer">
 </div>
+
+
+
+
+
+
+
+
+
 
 
 

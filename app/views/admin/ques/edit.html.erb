@@ -19,20 +19,25 @@
       </ul>
     </div>
   <% end %>
+  <center>
+    <br /><br />
   <div class="field">
-    <%= form.label :description, "Description" %><br />
-    <%= form.text_area :description, autofocus: true, autocomplete: "Description" %>
+    <%= form.label :description, "Description" %><br>
+    <%= form.text_area :description, autofocus: true, autocomplete: "Description", cols: "60", rows: "2" %>
   </div>
+  <br />
 
   <div class="field">
-    <%= form.label :question_type_id, "Question Type" %><br />
-   <%= form.select :question_type_id, @ques.collect { |p| [ p.name, p.id ] }, include_blank: true %> 
+    <%= form.label :question_type_id, "Update Question Type" %>
+   <%= form.select :question_type_id, @ques.collect { |p| [ p.name, p.id ] }, autocomplete: "question_type" %> 
   </div>
+  <br>
 
   <div class="actions">
     <%= form.submit "Update" %>
   </div>
 <% end %>
+</center>
 </div>
 
 

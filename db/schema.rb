@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_091736) do
+ActiveRecord::Schema.define(version: 2019_04_09_112600) do
 
   create_table "answers", force: :cascade do |t|
     t.text "description"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_091736) do
     t.datetime "updated_at", null: false
     t.string "fname"
     t.string "lname"
-    t.decimal "pnumber"
+    t.integer "pnumber"
     t.string "gender"
     t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -1,9 +1,6 @@
 class Question < ApplicationRecord
 	belongs_to :question_type
-	# has_many :questions_users
- #    has_many :users, through: :questions_users
     has_many :answers
+    validates :description, :question_type_id, presence: true
     accepts_nested_attributes_for :answers
-    
-   # accepts_nested_attributes_for :questions_users, :allow_destroy => true, :reject_if => :all_blank
-end
+ end

@@ -1,18 +1,18 @@
-<div id ="header">
   <%= form_for @user, url: users_path(@user), method: :put do |form| %>
   <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2>
+    <h1>
       <%= pluralize(@user.errors.count, "error") %> prohibited
       this article from being saved:
-    </h2>
+    </h1>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
+    </div>
       <% end %>
     </ul>
-  </div>
   <% end %>
+  <div id ="header">
   <center>
     <h3> Edit User </h3>
   </div>

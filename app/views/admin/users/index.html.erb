@@ -1,13 +1,15 @@
 <div id="header">
  <center>
   <h1>Employee Details </h1>
+</center>
+</div>
+  <div id="mid">
   <p style="text-align: left; font-size: 15px;">
     <%= link_to "All Questions", admin_ques_path %>
-  </div>
-  <div id="mid">
-    <p style="text-align: right; font-size: 15px;">
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    </p>
+  </p>
+  <p style="text-align: right; font-size: 15px;">
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  </p>
     <center>
       <table>
         <tr>
@@ -28,7 +30,8 @@
           <th><br></th>
           <h3><th>Gender</th></h3>
           <th><br></th>
-          <th><br></th></tr>
+          <th><br></th>
+        </tr>
           <% @users.each_with_index do |user, i| %>
           <tr>
             <td><%= i+1 %></td>
@@ -49,16 +52,16 @@
             <td><%= user.gender%></td>
             <td><br></td>
             <td><br></td>
-            <td class ="FocusOnPanel"><%= link_to 'Show', admin_user_path(user) %></td>
+            <td><%= link_to 'Show', admin_user_path(user) %></td>
             <td><br></td>
             <td><br></td>
-            <td class ="FocusOnPanel"><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+           <td> <%= link_to 'Edit', edit_admin_user_path(user) %></td>
             <td><br></td>
             <td><br></td>
-            <td class ="FocusOnPanel"><%= link_to 'Destroy', admin_user_path(user),
+           <td> <%= link_to 'Destroy', admin_user_path(user),
             method: :delete,
             data: { confirm: 'Are you sure?' } %></td>
-            <td class ="FocusOnPanel"><%= link_to 'Submitted Answers', users_index_for_ans_path(user_id: user.id) %> </td>
+            <td><%= link_to 'Submitted Answers', users_index_for_ans_path(user_id: user.id) %> </td>
             <td><br></td>
             <td><br></td>
           </tr>
@@ -67,6 +70,8 @@
         <br>
         <br>
         <td class ="FocusOnPanel"><%= link_to 'CreateQuestions', new_admin_que_path %> </td>
+        <br>
+        <%#= link_to 'Back', :back%>
         <br>
       </center>
     </center>
