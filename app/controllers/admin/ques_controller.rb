@@ -41,8 +41,9 @@ class Admin::QuesController < ApplicationController
 	 @question = Question.new(question_params)
     @ques = QuestionType.all
     if @question.save
-      redirect_to admin_ques_path(@question)
+            redirect_to admin_ques_path(@question)
     else
+      
       render 'new'
      end
    end
