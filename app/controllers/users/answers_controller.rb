@@ -16,6 +16,7 @@ def update_self_ans
     unless ques.answers.present?
       ques.answers.create(user_id: current_user.id, description: question[1][:description])
       ques.save 
+
     end
   end
   redirect_to users_answers_path
@@ -78,9 +79,11 @@ def submit_for_team
     ques = Question.find question[0]
   if ques.answers.present?
      ques.answers.update(user_id: current_user.id, description: question[1][:description])
+    flash[:success] = "Answers Update Successfully"
   else
     ques.answers.create(user_id: current_user.id, description: question[1][:description])
     ques.save  
+    flash[:success] = "Answer submitted Successfully"
  end
 end
 redirect_to users_team_index_path
@@ -92,9 +95,12 @@ def submit_for_self
     ques = Question.find question[0]
   if ques.answers.present?
      ques.answers.update(user_id: current_user.id, description: question[1][:description])
+    flash[:success] = "Answers Update Successfully"
   else
+
     ques.answers.create(user_id: current_user.id, description: question[1][:description])
-    ques.save  
+    ques.save 
+    flash[:success] = "Answer Created Successfully" 
  end
 end
 redirect_to users_self_index_path

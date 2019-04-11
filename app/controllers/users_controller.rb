@@ -13,7 +13,7 @@ end
 def update
 	@user = User.find(current_user.id)
   if @user.update(user_params)
-    redirect_to users_path
+    redirect_to users_path, success: "Your information Update Successfully"
   else
     render 'edit'
   end

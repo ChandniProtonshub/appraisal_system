@@ -22,7 +22,7 @@ class Admin::QuesController < ApplicationController
   def update
    @question = Question.find(params[:id])
      if @question.update(question_params)
-      redirect_to admin_ques_path
+      redirect_to admin_ques_path, success: "Question Update Successfully"
     else 
       render 'edit'
     end
@@ -34,6 +34,7 @@ class Admin::QuesController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
+    flash[:success] = "Question deleted Successfully"
     redirect_to admin_ques_path
   end
 
@@ -42,6 +43,7 @@ class Admin::QuesController < ApplicationController
     @ques = QuestionType.all
     if @question.save
             redirect_to admin_ques_path(@question)
+            flash[:success] = "Question Created Successfully"
     else
       
       render 'new'

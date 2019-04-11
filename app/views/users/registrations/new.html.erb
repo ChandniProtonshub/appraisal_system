@@ -1,40 +1,34 @@
 <div id="header">
   <center>
-      <h2>Create an account</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-       <%= devise_error_messages! %>
-
-      <%#= render "devise/shared/error_messages", resource: resource %>
-    </center>
-  </div>
-  <center>
+    <h2>Create an account</h2>
+  </center>
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<center>
   <div id="mid">
-
     <div class="field">
       <%= f.label :fname, "First Name" %><br />
-      <%= f.text_field :fname, autofocus: true, autocomplete: "fname" %>
-    </div>
+      <%= f.text_field :fname, autofocus: true, autocomplete: "first name"%>
+      </div>
 
     <div class="field">
       <%= f.label :lname, "Last Name" %><br />
-      <%= f.text_field :lname, autofocus: true, autocomplete: "lname" %>
+  <%= f.text_field :lname, autofocus: true, autocomplete: "lastname"%>
     </div>
-
     <div class="field">
       <%= f.label :email, "Email" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "Email"%>
     </div>
-
     <div class="field">
       <%= f.label :pnumber, "Phone Number" %><br />
-      <%= f.number_field :pnumber, autofocus: true, autocomplete: "pnumber" %>
+      <%= f.number_field :pnumber, autofocus: true, autocomplete: "Phone number"%>
     </div>
-
     <div class="field">
       <b>Gender</b><br />
       <%= f.radio_button :gender, 'Female' %> Female
       <%= f.radio_button :gender, 'Male' %> Male <br />
     </div>
+
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
@@ -42,18 +36,20 @@
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
+
     <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
-     
-     <div class="actions">
+
+    <div class="actions">
       <%= f.submit "Sign up" %>
-     </div>
-
-    <% end %>
+    </div>
     <%= link_to "Back", "/users/sign_in" %>
-
+    <h4>
+    <%= devise_error_messages! %></h4>
+    <% end %>
+  
 
     <%#= f.submit "Sign up" %>
     <%# end %>
@@ -64,3 +60,54 @@
 </div>
 
 
+
+<!-- <script>
+     $(document).ready(function(){
+       var error_fname=true;
+       var error_lname=true;
+       var error_phone=true ;
+       var error_pass=true ;
+       var error_cpass=true;
+       var error_address=true;
+       var error_gender=true;      //submit validation
+           $('.submit').click(function () {
+               error_fname=true;
+               error_lname=true;
+               error_phone=true;
+               error_pass=true;
+               error_cpass=true;
+               error_address=true;
+               error_gender=true;              
+
+               if ($("#fname").val() == '') {
+               $("#errorMessage1").text("* first name can't be blanked");
+               error_fname=false ;
+             }
+             if ($("#lname").val() == '') {
+               $("#errorMessage2").text("* lastName can't be blanked");
+               error_lname=false;
+             }             if ($("#email").val()== ''){
+              $("#errorMessage3").text("* email can't be empty");
+              error_phone =false;
+            }
+             if ($("#pnumber").val() == '') {
+               $("#errorMessage7").text("* Phone number can't be empty");
+               error_address=false;
+            }              
+            if ($('input[name=gender]:checked').length <= 0) {
+               $("#errorMessage10").text("* select atleast one option");
+               error_gender=false;
+             }              if((error_fname==true) && (error_lname==true) && (error_phone==true) && (error_pass==true) && (error_cpass==true) && (error_address==true) && (error_gender==true)){
+                alert("Registration successful");
+                return true ;
+                 }else{
+                 alert("plz fill the form correctly");
+                  return false ;
+                }
+         });
+    });
+  </script>
+
+
+
+ -->

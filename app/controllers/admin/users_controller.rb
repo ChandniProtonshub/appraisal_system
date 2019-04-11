@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
 	def update
 		@user = User.find_by_id(params[:id])
 		if @user.update(user_params)
-			redirect_to admin_users_path
+			redirect_to admin_users_path, success: "User information Update Successfully"
 		else
 			render 'edit'
 		end
@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
 	def destroy
 		@user = User.find(params[:id])
 		@user.destroy
-		redirect_to admin_root_path
+		redirect_to admin_root_path, success: "User Deleted Successfully"
 	end
 	private
 

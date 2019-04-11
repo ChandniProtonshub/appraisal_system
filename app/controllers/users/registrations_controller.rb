@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
+    
   end
 
   # POST /resource
@@ -25,9 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    flash[:success] = "you have deleted account successfully"
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
