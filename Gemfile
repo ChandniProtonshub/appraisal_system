@@ -64,4 +64,7 @@ gem 'devise'
 gem 'pry'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
-gem 'jquery-rails'
+gem "jquery-rails"
+gem "bootstrap_form", ">= 4.2.0"
+gem 'rails-ujs', '~> 0.1.0'
+gem "jquery-validation-rails"

@@ -1,15 +1,5 @@
-module ApplicationHelper
-# def flash_class(level)
-#     case level
-#         when :notice then "alert alert-info"
-#         when :success then "alert alert-success"
-#         when :error then "alert alert-error"
-#         when :alert then "alert alert-error"
-#         when :danger then "alert alert-danger"
-#     end
-# end
-
-def error_message_for(field_name)
+class ActionView::Helpers::FormBuilder
+  def error_message_for(field_name)
     if self.object.errors[field_name].present?
       model_name              = self.object.class.name.downcase
       id_of_element           = "error_#{model_name}_#{field_name}"
